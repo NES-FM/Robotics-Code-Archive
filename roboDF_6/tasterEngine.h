@@ -1,6 +1,6 @@
 int getTasterPressed()
 {
-	int tValue = vMux[Touch];
+	int tValue = vMuxRaw[Touch];
 	if(tValue < 610 && tValue > 500)
 		return 40;
 	if(tValue < 760 && tValue > 610)

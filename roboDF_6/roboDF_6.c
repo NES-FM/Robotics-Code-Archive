@@ -1,6 +1,6 @@
-#pragma config(Sensor, S1,     p1,             sensorLightActive)
-#pragma config(Sensor, S2,     p2,             sensorLightActive)
-#pragma config(Sensor, S3,     p3,             sensorLightActive)
+#pragma config(Sensor, S1,     ll,             sensorLightActive)
+#pragma config(Sensor, S2,     mm,             sensorLightActive)
+#pragma config(Sensor, S3,     rr,             sensorLightActive)
 #pragma config(Sensor, S4,     mux,            sensorI2CCustom)
 #pragma config(Motor,  motorB,          r,             tmotorNXT, PIDControl, encoder)
 #pragma config(Motor,  motorC,          l,             tmotorNXT, PIDControl, encoder)
@@ -10,15 +10,13 @@
 
 task main()
 {
+	StartTask(Sensor);
+	delay(500); //let sensor init
 	while(true)
 	{
-		nxtDisplayCenteredTextLine(0, "mux");
-		nxtDisplayCenteredTextLine(1, "1: %d | %d", LSvalRaw(port1), LSvalNorm(port1));
-		nxtDisplayCenteredTextLine(2, "2: %d | %d", LSvalRaw(port2), LSvalNorm(port2));
-		nxtDisplayCenteredTextLine(3, "3: %d | %d", LSvalRaw(port3), LSvalNorm(port3));
-		nxtDisplayCenteredTextLine(4, "nxt");
-		nxtDisplayCenteredTextLine(5, "1: %d", SensorValue(p1));
-		nxtDisplayCenteredTextLine(6, "2: %d", SensorValue(p2));
-		nxtDisplayCenteredTextLine(7, "3: %d", SensorValue(p3));
+		if(leftBlack &&  && rightWhite)
+		{
+			SlowLeft();
+		}
 	}
 }

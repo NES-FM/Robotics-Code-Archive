@@ -8,6 +8,7 @@
 #include "drivers/hitechnic-accelerometer.h"
 
 #include "config.h"
-#include "init.h"
+#include "Functions.h"
 #include "motor_control.h"
+#include "sensor_control.h"
 #include "tasterEngine.h"
