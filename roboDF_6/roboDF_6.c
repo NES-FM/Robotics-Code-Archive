@@ -14,9 +14,17 @@ task main()
 	delay(500); //let sensor init
 	while(true)
 	{
-		if(leftBlack &&  && rightWhite)
+		if(leftBlack && rightWhite)
 		{
 			SlowLeft();
+		}
+		if(leftWhite && midBlack && rightWhite)
+		{
+			Drive();
+		}
+		if(leftWhite && rightBlack)
+		{
+			SlowRight();
 		}
 	}
 }

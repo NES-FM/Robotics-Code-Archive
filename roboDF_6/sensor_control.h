@@ -7,6 +7,8 @@ int vMuxRaw[] = {0, 0, 0, 0};
 int vMuxNorm[] = {0, 0, 0, 0};
 int Light[] = {0, 0, 0};
 
+bool leftBlack, midBlack, rightBlack, leftWhite, midWhite, rightWhite = false;
+
 task Sensor()
 {
   while(true)
@@ -22,35 +24,11 @@ task Sensor()
     vMuxNorm[1] = LSvalNorm(port2);
     vMuxNorm[2] = LSvalNorm(port3);
     vMuxNorm[3] = LSvalNorm(port4);
+    leftBlack = (Light[left] > CalLeft);
+    midBlack = (Light[mid] > CalMid);
+    rightBlack = (Light[right] > CalRight);
+    leftWhite = (Light[left] < CalLeft);
+    midWhite = (Light[mid] < CalMid);
+    rightWhite = (Light[right] < CalRight);
   }
-}
-
-bool leftBlack()
-{
-  return (Light[left] > CalLeft);
-}
-
-bool midBlack()
-{
-  return (Light[mid] > CalMid);
-}
-
-bool rightBlack()
-{
-  return (Light[right] > CalRight);
-}
-
-bool leftWhite()
-{
-  return (Light[left] < CalLeft);
-}
-
-bool midWhite()
-{
-  return (Light[mid] < CalMid);
-}
-
-bool rightWhite()
-{
-  return (Light[right] < CalRight);
 }
