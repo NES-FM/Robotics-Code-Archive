@@ -6,7 +6,6 @@
 #include "drivers/lego-ultrasound.h"
 #include "drivers/mindsensors-lightsensorarray.h"
 #include "drivers/hitechnic-accelerometer.h"
-#include "drivers/nxt-arduino_spi.h"
 
 #include "config.h"
 #include "Functions.h"

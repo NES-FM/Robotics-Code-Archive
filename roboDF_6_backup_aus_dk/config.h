@@ -1,7 +1,7 @@
 //Light Calibration
-#define CalLeft 547
-#define CalMid 559
-#define CalRight 550
+#define CalLeft 45
+#define CalMid 45
+#define CalRight 45
 //-----------------
 
 //----Mux Ports 0-3
@@ -22,15 +22,11 @@
 //-----------------
 
 //-----Motor Speeds
-#define ff 24
-#define bf -26
+#define ff 30
+#define bf -30
 #define fm 25
 #define bm -10
 #define fs 30
 #define bs 10
-#define drive 25
-//-----------------
-
-//-----------------
-#define arduino_delay 10
+#define drive 30
 //-----------------
