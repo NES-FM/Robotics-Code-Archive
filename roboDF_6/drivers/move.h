@@ -1,39 +1,39 @@
-void move(int motorl,int motorr,int step=0,int time=0)//c, b
+void move(int motorl,int motorr, int step=0, int time=0)//c, b
 {
 	if(step != 0)
 	{
 		if(abs(motorl) > abs(motorr))
 		{
-			nMotorEncoder[motorC] = 0;
-			while(abs(nMotorEncoder[motorC]) <= abs(step))
+			nMotorEncoder[motorA] = 0;
+			while(abs(nMotorEncoder[motorA]) <= abs(step))
 			{
-				motor[motorB] = motorr;
-				motor[motorC] = motorl;
+				motor[motorC] = motorr;
+				motor[motorA] = motorl;
 			}
 		}
 		else
 		{
-			nMotorEncoder[motorB] = 0;
-			while(abs(nMotorEncoder[motorB]) <= abs(step))
+			nMotorEncoder[motorC] = 0;
+			while(abs(nMotorEncoder[motorC]) <= abs(step))
 			{
-				motor[motorB] = motorr;
-				motor[motorC] = motorl;
+				motor[motorC] = motorr;
+				motor[motorA] = motorl;
 			}
 		}
-		motor[motorB] = 0;
 		motor[motorC] = 0;
+		motor[motorA] = 0;
 	}
 	else if(time != 0)
 	{
-		motor[motorB] = motorr;
-		motor[motorC] = motorl;
+		motor[motorC] = motorr;
+		motor[motorA] = motorl;
 		wait1Msec(time);
-		motor[motorB] = 0;
+		motor[motorA] = 0;
 		motor[motorC] = 0;
 	}
 	else
 	{
-		motor[motorB] = motorr;
-		motor[motorC] = motorl;
+		motor[motorC] = motorr;
+		motor[motorA] = motorl;
 	}
 }

@@ -22,8 +22,15 @@
 	#define ARDUINO_SET_OUTPUT       0x70
 	#define ARDUINO_PWM_OUTPUT       0x71
 
+  #define ARDUINO_GREEN_LEFT       0x30
+  #define ARDUINO_GREEN_RIGHT      0x31
+
   #define ARDUINO_HIGH             1
   #define ARDUINO_LOW              0
+  
+  #define ARDUINO_BLACK            0
+  #define ARDUINO_GREEN            1
+  #define ARDUINO_WHITE            2
 
 //******************************************************//
 
@@ -48,10 +55,14 @@ void receiveEvent(int howMany) {
  }
  int x = Wire.read();        // Read the incoming byte
  toPrint = String(x) + ";data:";
+ char* tmp = "";
  for(int ii = 0; ii < howMany; ii++)
  {
-   toPrint += String(c[ii],HEX) + " - " + String(c[ii],DEC);
-   toPrint +=";";
+   //tmp = "";
+   //sprintf(tmp, "%#x - %2d;", c[ii], c[ii]);
+   toPrint +=  "|" + String(c[ii], DEC);
+   //toPrint += String(tmp) + " - " + String(c[ii],DEC);
+   //toPrint +=";";
  }
 }
 
@@ -102,14 +113,23 @@ void requestEvent() {
       case ARDUINO_SET_OUTPUT:
         Wire.write(0x44);
         outputVals[intFromMessage] = secondArg;
+        outputChange = true;
         break;
         
       case ARDUINO_PWM_OUTPUT:
         Wire.write(0x44);
         pwmVals[intFromMessage] = secondArg;
+        pwmChange = true;
+        break;
+
+      case ARDUINO_GREEN_LEFT:
+        Wire.write(lState);
+        break;
+      case ARDUINO_GREEN_RIGHT:
+        Wire.write(rState);
         break;
     }
-    Wire.write(0x44);
+    //Wire.write(0x58);
 
 //  Wire.endTransmission();
   
