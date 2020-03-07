@@ -8,6 +8,7 @@
 #include "drivers/hitechnic-accelerometer.h"
 #include "drivers/nxt-arduino_i2c.h"
 #include "drivers/move.h"
+#include "drivers/hitechnic-gyro.h"
 
 #include "config.h"
 #include "Functions.h"

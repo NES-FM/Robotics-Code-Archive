@@ -9,8 +9,8 @@ task main()
 	StartTask(Sensor);
 	while(true)
 	{
-		nxtDisplayCenteredTextLine(0, "G, W, B");
-		nxtDisplayCenteredTextLine(1, "%d, %d, %d", ARDUINO_GREEN, ARDUINO_WHITE, ARDUINO_BLACK);
+		nxtDisplayCenteredTextLine(0, "%d", HTGYROreadRot(port3));
+		nxtDisplayCenteredTextLine(1, "G:%d, W:%d, B:%d", ARDUINO_GREEN, ARDUINO_WHITE, ARDUINO_BLACK);
 		nxtDisplayCenteredTextLine(2, "Color L:");
 		nxtDisplayCenteredTextLine(3, "%d", Green[left]);
 		nxtDisplayCenteredTextLine(4, "Color R:");

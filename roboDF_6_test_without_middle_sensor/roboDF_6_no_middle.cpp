@@ -73,41 +73,153 @@ task main()
 			Drive();
 			delay(30);
 		}
-		
+
+		/*		if (Green[left] == ARDUINO_GREEN && Green[right] == ARDUINO_GREEN)
+		{
+		nxtDisplayCenteredBigTextLine(6, "Dead");
+		move(-drive, -drive, 40);
+		move(0, 0);
+		delay(100);
+		if (Green[right] == ARDUINO_WHITE || Green[left] == ARDUINO_WHITE)
+		{
+		nxtDisplayCenteredBigTextLine(6, "Real Dead");
+		arduinoBeep = true;
+		move(drive, drive, 330);
+		move(drive, -drive, 900);
+		//move(drive, -drive);
+		FastRight();
+		while (Light[mid] < CalMid)
+		{
+		//Light[mid] = LSvalRaw(port1);
+		}
+		move(drive, drive);
+		delay(200);
+		}
+		else
+		{
+		move(drive, drive, 225);
+		move(drive, drive);
+		}
+		}*/
+
 		if (Green[left] == ARDUINO_GREEN)
 		{
-			move(-drive, -drive, 40);
+			//move(drive, drive,15);
 			move(0, 0);
-			delay(100);
-			if (Green[left] == ARDUINO_WHITE)
+			delay(200);
+			if (Green[right] == ARDUINO_BLACK)
 			{
-				arduinoBeep = true;
-				move(drive, drive, 330);
-				move(-drive, drive, 300);
-				//move(-drive, drive);
-				FastLeft();
-				while (Light[mid] < CalMid)
+				move(drive, -drive);
+				while(Green[right] == ARDUINO_BLACK) {}
+				move(0, 0);
+				delay(500);
+			}
+			if (Green[right] == ARDUINO_GREEN)
+			{
+				nxtDisplayCenteredBigTextLine(6, "Dead");
+				move(-drive, -drive, 40 + 10);
+				move(0, 0);
+				delay(100);
+				if (Green[right] == ARDUINO_WHITE || Green[left] == ARDUINO_WHITE)
 				{
-					//Light[mid] = LSvalRaw(port1);
+					nxtDisplayCenteredBigTextLine(6, "Real Dead");
+					arduinoBeep = true;
+					move(drive, drive, 150);
+					move(drive, -drive+5, 1000);
+					//move(drive, -drive);
+					FastRight();
+					while (Light[mid] < CalMid)
+					{
+						//Light[mid] = LSvalRaw(port1);
+					}
+					move(drive, drive);
+					delay(500);
 				}
-				move(drive, drive);
+				else
+				{
+					move(drive, drive, 225);
+					move(drive, drive);
+				}
+
 			}
 			else
 			{
-				move(drive, drive, 225);
-				move(drive, drive);
+				move(-drive, -drive, 40 + 10);
+				move(0, 0);
+				delay(100);
+				if (Green[left] == ARDUINO_WHITE)
+				{
+					nxtDisplayCenteredBigTextLine(6, "left");
+					arduinoBeep = true;
+					move(drive, drive, 250);
+					move(-drive, drive, 300);
+					//move(-drive, drive);
+					FastLeft();
+					while (Light[mid] < CalMid)
+					{
+						//Light[mid] = LSvalRaw(port1);
+					}
+					move(drive, drive);
+					delay(200);
+				}
+				else
+				{
+					move(drive, drive, 225);
+					move(drive, drive);
+				}
 			}
 
 		}
 		if (Green[right] == ARDUINO_GREEN)
 		{
-			move(-drive, -drive, 40);
+			//move(drive, drive, 15);
+			move(0, 0);
+			delay(200);
+			if (Green[left] == ARDUINO_BLACK)
+			{
+				move(-drive, drive);
+				while(Green[left] == ARDUINO_BLACK) {}
+				move(0, 0);
+				delay(500);
+			}
+			if (Green[left] == ARDUINO_GREEN)
+			{
+				nxtDisplayCenteredBigTextLine(6, "Dead");
+				move(-drive, -drive, 40 + 10);
+				move(0, 0);
+				delay(100);
+				if (Green[right] == ARDUINO_WHITE || Green[left] == ARDUINO_WHITE)
+				{
+					nxtDisplayCenteredBigTextLine(6, "Real Dead");
+					arduinoBeep = true;
+					move(drive, drive, 150);
+					move(drive, -drive+5, 1000);
+					//move(drive, -drive);
+					FastRight();
+					while (Light[mid] < CalMid)
+					{
+						//Light[mid] = LSvalRaw(port1);
+					}
+					move(drive, drive);
+					delay(500);
+				}
+				else
+				{
+					move(drive, drive, 225);
+					move(drive, drive);
+				}
+
+			}
+			else
+			{
+			move(-drive, -drive, 40 + 10);
 			move(0, 0);
 			delay(100);
 			if (Green[right] == ARDUINO_WHITE)
 			{
+				nxtDisplayCenteredBigTextLine(6, "right");
 				arduinoBeep = true;
-				move(drive, drive, 330);
+				move(drive, drive, 250);
 				move(drive, -drive, 300);
 				//move(drive, -drive);
 				FastRight();
@@ -115,13 +227,16 @@ task main()
 				{
 					//Light[mid] = LSvalRaw(port1);
 				}
+				//delay(50);
 				move(drive, drive);
+				delay(200);
 			}
 			else
 			{
 				move(drive, drive, 225);
 				move(drive, drive);
 			}
+		}
 
 		}
 
@@ -147,6 +262,17 @@ task main()
 				//Light[mid] = LSvalRaw(port1);
 			}
 			nxtDisplayCenteredTextLine(7, "  ");
+		}
+
+		if (Accel < -40 || Accel > 40)
+		{
+			ff = 30;
+			bf = 10;
+		}
+		else
+		{
+			ff = 40;
+			bf = -25;
 		}
 
 		nxtDisplayCenteredTextLine(3, "%d|%d|%d", lastCornerVal[0], lastCornerVal[1], lastCornerVal[2]);

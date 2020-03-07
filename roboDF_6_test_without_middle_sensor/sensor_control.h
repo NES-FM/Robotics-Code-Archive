@@ -8,6 +8,7 @@ int Green[] = {ARDUINO_WHITE, 0, ARDUINO_WHITE};
 int GreenG[] = {0, 0, 0};
 int vArDVal[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 int vArAVal[] = {0,0,0,0,0,0,0,0};
+int Accel = 0;
 
 bool arduinoBeep = false;
 bool arduinoBeepTurnoff = false;
@@ -55,6 +56,9 @@ task Sensor()
 		else
 			Green[right] = ARDUINO_WHITE;
 	}
+	int _x_axis, _y_axis, _z_axis ;
+	HTACreadAllAxes(port3, _x_axis, _y_axis, _z_axis);
+	Accel = _x_axis;
   }
 }
 task Ard()

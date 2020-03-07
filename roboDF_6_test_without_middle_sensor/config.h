@@ -1,7 +1,7 @@
 //Light Calibration
-#define CalLeft ((555 + 521) / 2 - 2) //547
-#define CalMid ((451 + 490) / 2 - 3) //559
-#define CalRight ((547 + 521) / 2 - 2) //550
+#define CalLeft ((562 + 523) / 2 - 5) //547
+#define CalMid ((451 + 493) / 2 - 5) //559
+#define CalRight ((552 + 521) / 2 - 5) //550
 //-----------------
 
 //----Mux Ports 0-3
@@ -26,8 +26,12 @@
 #define ff 24
 #define bf -26
 */
-#define ff 30
+/*
+#define ff 35
 #define bf -26
+*/
+int ff = 40;
+int bf = -25;
 #define fm 25
 #define bm -10
 #define fs 30
