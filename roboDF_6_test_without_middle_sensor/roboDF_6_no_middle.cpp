@@ -240,7 +240,7 @@ task main()
 
 		}
 
-
+/*
 		if (vArDVal[3] == ARDUINO_LOW) //Taster
 		{
 			move(-drive, -drive, 100); // Back
@@ -262,7 +262,7 @@ task main()
 				//Light[mid] = LSvalRaw(port1);
 			}
 			nxtDisplayCenteredTextLine(7, "  ");
-		}
+		}*/
 
 		if (Accel < -40 || Accel > 40)
 		{
