@@ -1,3 +1,2 @@
-# What the heck is this
-These are all the Programs from the Robocup Rescue Line. There are all; from the Old to the new one, with a bit of a weird sorting.
-## Note, That this is not our newest Code. New Repo [Here](https://github.com/xXFloCraftXx/AAAAA-Badderien-ESP32)
+# This is an old Archive, where we still keep our old Code from when we used a Lego Mindstorms NXT with RobotC
+Code Now Available here: https://github.com/NES-FM/Robotics-Code-Main
